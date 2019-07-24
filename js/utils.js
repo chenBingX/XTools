@@ -64,3 +64,65 @@ String.prototype.endWith = function(endStr) {
 function isPc() {
     return !(/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent));
 }
+
+// 解压
+function unGzip(b64Data) {
+    let strData = atob(b64Data);
+    const charData = strData.split('').map(function(x) {
+        return x.charCodeAt(0);
+    });
+    const binData = new Uint8Array(charData);
+    const data = pako.ungzip(binData);
+    strData = utf8ArrayToStr(data);
+    return strData;
+}
+
+// 压缩
+function gzip(str) {
+    const binaryString = pako.gzip(encodeURIComponent(str), { to: 'string' });
+    return btoa(binaryString);
+}
+
+// 字符串占用字节数计算(UTF-8)
+function length(str) {
+    let total = 0,
+        charCode, i, len;
+    for (i = 0, len = str.length; i < len; i++) {
+        charCode = str.charCodeAt(i);
+        if (charCode <= 0x007f) {
+            total += 1;
+        } else if (charCode <= 0x07ff) {
+            total += 2;
+        } else if (charCode <= 0xffff) {
+            total += 3;
+        } else {
+            total += 4;
+        }
+    }
+    return total;
+}
+
+function utf8ArrayToStr(array) {
+    var out = "",
+        i = 0,
+        len = array.length,
+        char1, char2, char3, char4;
+    while (i < len) {
+        char1 = array[i++];
+        // 当单个字节时, 最大值 '01111111', 最小值 '00000000' 右移四位 07, 00
+        // 当两个字节时, 最大值 '11011111', 最小值 '11000000' 右移四位 13, 12
+        // 当三个字节时, 最大值 '11101111', 最小值 '11100000' 右移四位 14, 14
+        if (char1 >> 4 <= 7) {
+            out += String.fromCharCode(char1);
+        } else if (char1 >> 4 == 12 || char1 >> 4 == 13) {
+            char2 = array[i++];
+            out += String.fromCharCode(((char1 & 0x1F) << 6) | (char2 & 0x3F));
+        } else if (char1 >> 4 == 14) {
+            char2 = array[i++];
+            char3 = array[i++];
+            char4 = ((char1 & 0x0F) << 12) | ((char2 & 0x3F) << 6);
+            out += String.fromCharCode(char4 | ((char3 & 0x3F) << 0));
+        }
+    }
+    return out;
+}
