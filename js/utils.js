@@ -68,9 +68,11 @@ function isPc() {
 // 解压
 function unGzip(b64Data) {
     let strData = atob(b64Data);
+    console.log("strData = " + strData);
     const charData = strData.split('').map(function(x) {
         return x.charCodeAt(0);
     });
+    console.log("charData = " + charData);
     const binData = new Uint8Array(charData);
     const data = pako.ungzip(binData);
     strData = utf8ArrayToStr(data);
