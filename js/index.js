@@ -1,18 +1,18 @@
 function input() {
-    const input = document.getElementById('input').value;
+    var input = document.getElementById('input').value;
     try {
-        const decode = unGzip(input);
-        console.log("decode = " + decode);
+        if (input.search("\\n")) {
+            input = input.replace(/\\n/g, "");
+        }
+        var decode = unGzip(input);
         let output = JSON.stringify(JSON.parse(decode), null, 4);
         $("#output").text(output);
     } catch (error) {
         try {
-            const decode = unGzip(decodeURI(input));
-            console.log("decode = " + decode);
+            input = decodeURI(input);
+            var decode = unGzip(input);
             let output = JSON.stringify(JSON.parse(decode), null, 4);
             $("#output").text(output);
-        } catch (error) {
-
-        }
+        } catch (error) {}
     }
 }
