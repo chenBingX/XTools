@@ -3,7 +3,6 @@
 <html>
 
 <head>
-
     <meta charset="utf-8">
     <title>XTools-Stock Tools</title>
 
@@ -13,6 +12,14 @@
 </head>
 
 <body>
+
+    <script>
+        window.onpageshow = function(event) {　　
+            if (event.persisted) {　　　　
+                window.location.reload()　　
+            }
+        };
+    </script>
 
     <div style="display: flex;flex-direction:column;align-items:center;">
         <p style="font-style:inherit;font-size: 1.5em"><strong>Rise and fall calculation(涨跌幅计算)</strong></p>
