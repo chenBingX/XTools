@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <title>XTools-Stock Tools</title>
+
+    <link rel="shortcut icon" href="res/icon/xtools.png" type="image/x-icon" />
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/stock_tools.js"></script>
+</head>
+
+<body>
+
+    <div>
+        <p>Rise and fall calculation(涨跌幅计算)</p>
+        <table>
+            <tr>
+                <th>Previous price(前价)</th>
+                <th>Current price(现价)</th>
+                <th>Quote change(涨跌幅)</th>
+            </tr>
+            <tr>
+                <td>
+                    <input id="previous_price" type="number" name="previous_price">
+                </td>
+                <td>
+                    <input id="current_price" type="number" name="current_price">
+                </td>
+                <td id="rise_and_fall_result" style="text-align: center">
+                    涨跌幅
+                </td>
+            </tr>
+        </table>
+
+        <button onclick="calculationRiseAndFall()">点击</button>
+
+    </div>
+
+</body>
+
+</html>

@@ -65,7 +65,7 @@ function isPc() {
     return !(/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent));
 }
 
-// 解压
+// gzip解压
 function unGzip(b64Data) {
     let strData = atob(b64Data);
     console.log("strData = " + strData);
@@ -79,7 +79,7 @@ function unGzip(b64Data) {
     return strData;
 }
 
-// 压缩
+// gzip压缩
 function gzip(str) {
     const binaryString = pako.gzip(encodeURIComponent(str), { to: 'string' });
     return btoa(binaryString);
