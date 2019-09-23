@@ -50,7 +50,6 @@ function calculationProfitOrLoss() {
     if (commission_tax_rate != 0) {
         qriginal_funds = cost_price * quantity;
     }
-    // var r_buy_commission_tax_rate = qriginal_funds * commission_tax_rate;
     var r_sell_commission_tax_rate = current_price * quantity * commission_tax_rate;
     if (r_sell_commission_tax_rate < 5) {
         r_sell_commission_tax_rate = 5;
@@ -61,8 +60,8 @@ function calculationProfitOrLoss() {
     if (qriginal_funds != null) {
         profit_or_loss_rate = r_profit_or_loss / qriginal_funds * 100;
     }
-    $('#sell_commission2').html(Math.abs(r_sell_commission_tax_rate.toFixed(3)));
-    $('#sell_stamp_duty2').html(Math.abs(r_sell_stamp_duty.toFixed(3)));
+    // $('#sell_commission2').html(Math.abs(r_sell_commission_tax_rate.toFixed(3)));
+    // $('#sell_stamp_duty2').html(Math.abs(r_sell_stamp_duty.toFixed(3)));
     if (r_profit_or_loss > 0) {
         $('#profit_or_loss2').css("color", "green");
     } else {
