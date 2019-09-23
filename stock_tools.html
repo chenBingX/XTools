@@ -22,27 +22,27 @@
 
     <div style="width: 100%; display: flex;flex-direction:column;align-items:center;">
         <p style="font-style:inherit;font-size: 2em"><strong>Rise and fall calculation(涨跌幅计算)</strong></p>
-        <table style="width:100%">
+        <table style="width:95%;">
             <tr>
-                <th>Previous price(前价)</th>
-                <th>Current price(现价)</th>
-                <th>Quote change(涨跌幅)</th>
+                <th style="font-size: 1.8em">Previous price(前价)</th>
+                <th style="font-size: 1.8em">Current price(现价)</th>
+                <th style="font-size: 1.8em">Quote change(涨跌幅)</th>
             </tr>
             <tr>
                 <td align="center">
-                    <input id="previous_price" type="number" name="previous_price">
+                    <input style="height:50px;font-size: 1.8em;text-align: center" id="previous_price" type="number" name="previous_price">
                 </td>
                 <td align="center">
-                    <input id="current_price" type="number" name="current_price">
+                    <input style="height:50px;font-size: 1.8em;text-align: center" id="current_price" type="number" name="current_price">
                 </td>
                 <td style="display: flex;justify-content:center;align-items:center;">
-                    <p id="rise_and_fall_result_value" style="display: inline;">--</p>
+                    <p style="font-size: 1.8em" id="rise_and_fall_result_value" style="display: inline;">--</p>
                     <img id="rise_and_fall_result_icon" width="6em" src="res/icon/arrow_up.png" style="margin-left: 10px">
                 </td>
             </tr>
         </table>
 
-        <button style="width: 80%;font-size: 1.5em" onclick="calculationRiseAndFall()">Calculation(计算)</button>
+        <button style="width: 80%;font-size: 1.5em;margin-top: 20px" onclick="calculationRiseAndFall()">Calculation(计算)</button>
 
     </div>
 
