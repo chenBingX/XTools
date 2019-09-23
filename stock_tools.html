@@ -12,7 +12,7 @@
     <script type="text/javascript" src="js/stock_tools.js"></script>
 </head>
 
-<body style="padding: 0;margin: 0;height: 100%;font-size: 100%;">
+<body style="padding-bottom: 50px;padding-left: 0;padding-right: 0;padding-top: 0;margin: 0;height: 100%;font-size: 100%;">
     <script>
         window.onpageshow = function(event) {　　
             if (event.persisted) {　　　　
@@ -26,25 +26,155 @@
         <table style="width:95%;">
             <tr>
                 <th style="font-size: 1.8em">Previous price(前价)</th>
-                <th style="font-size: 1.8em">Current price(现价)</th>
-                <th style="font-size: 1.8em">Quote change(涨跌幅)</th>
-            </tr>
-            <tr>
                 <td align="center">
                     <input style="height:50px;font-size: 1.8em;text-align: center" id="previous_price" type="number" name="previous_price">
                 </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Current price(现价)</th>
                 <td align="center">
                     <input style="height:50px;font-size: 1.8em;text-align: center" id="current_price" type="number" name="current_price">
                 </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Quote change(涨跌幅)</th>
                 <td style="display: flex;justify-content:center;align-items:center;">
                     <p style="font-size: 1.8em" id="rise_and_fall_result_value" style="display: inline;">--</p>
-                    <img id="rise_and_fall_result_icon" width="6em" src="res/icon/arrow_up.png" style="margin-left: 10px">
+                    <img id="rise_and_fall_result_icon" width="15em" src="res/icon/arrow_up.png" style="margin-left: 10px">
                 </td>
             </tr>
         </table>
 
         <button style="width: 95%;font-size: 2.6em;margin-top: 20px" onclick="calculationRiseAndFall()">Calculation(计算)</button>
+    </div>
 
+    <div style="margin-top:10px;margin-bottom:10px;margin-left:2%;height:2px;width:96%;border-top:1px solid #ccc;float:left;margin-top:15px;"></div>
+
+    <div style="width: 100%; display: flex;flex-direction:column;align-items:center;">
+        <p style="font-style:inherit;font-size: 3em"><strong>Profit or loss(盈亏计算)</strong></p>
+        <table style="width:95%;">
+            <tr>
+                <th style="font-size: 1.8em">Cost price(成本价)</th>
+                <td align="center">
+                    <input style="height:50px;font-size: 1.8em;text-align: center" id="cost_price2" type="number" name="previous_price2">
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Current price(现价)</th>
+                <td align="center">
+                    <input style="height:50px;font-size: 1.8em;text-align: center" id="current_price2" type="number" name="current_price2">
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Commission tax rate(佣金税率)</th>
+                <td align="center">
+                    <input style="height:50px;font-size: 1.8em;text-align: center" id="commission_tax_rate2" type="number" name="commission_tax_rate2">
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Stamp duty(印花税)</th>
+                <td align="center">
+                    <input style="height:50px;font-size: 1.8em;text-align: center" id="stamp_duty2" type="number" name="stamp_duty2">
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Quantity(数量)</th>
+                <td align="center">
+                    <input style="height:50px;font-size: 1.8em;text-align: center" id="quantity2" type="number" name="quantity2">
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Sell commission(卖出佣金)</th>
+                <td style="display: flex;justify-content:center;align-items:center;">
+                    <p style="font-size: 1.8em;color:red" id="sell_commission2" style="display: inline;">--</p>
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Sell ​​stamp duty(卖出印花税)</th>
+                <td style="display: flex;justify-content:center;align-items:center;">
+                    <p style="font-size: 1.8em;color:red" id="sell_stamp_duty2" style="display: inline;">--</p>
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Quote change(涨跌幅)</th>
+                <td style="display: flex;justify-content:center;align-items:center;">
+                    <p style="font-size: 1.8em" id="rise_and_fall_result_value2" style="display: inline;">--</p>
+                    <img id="rise_and_fall_result_icon2" width="15em" src="res/icon/arrow_up.png" style="margin-left: 10px">
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Profit or loss(盈亏)</th>
+                <td style="display: flex;justify-content:center;align-items:center;">
+                    <p style="font-size: 1.8em" id="profit_or_loss2" style="display: inline;">--</p>
+                </td>
+            </tr>
+        </table>
+
+        <button style="width: 95%;font-size: 2.6em;margin-top: 20px" onclick="calculationProfitOrLoss()">Calculation(计算)</button>
+    </div>
+
+    <div style="margin-top:10px;margin-bottom:10px;margin-left:2%;height:2px;width:96%;border-top:1px solid #ccc;float:left;margin-top:15px;"></div>
+
+    <div style="width: 100%; display: flex;flex-direction:column;align-items:center;">
+        <p style="font-style:inherit;font-size: 3em"><strong>Transaction calculation(交易计算)</strong></p>
+        <table style="width:95%;">
+            <tr>
+                <th style="font-size: 1.8em">Current price(现价)</th>
+                <td align="center">
+                    <input style="height:50px;font-size: 1.8em;text-align: center" id="current_price3" type="number" name="current_price3">
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Commission tax rate(佣金税率)</th>
+                <td align="center">
+                    <input style="height:50px;font-size: 1.8em;text-align: center" id="commission_tax_rate3" type="number" name="commission_tax_rate3">
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Stamp duty(印花税)</th>
+                <td align="center">
+                    <input style="height:50px;font-size: 1.8em;text-align: center" id="stamp_duty3" type="number" name="stamp_duty3">
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Now quantity(现数量)</th>
+                <td align="center">
+                    <input style="height:50px;font-size: 1.8em;text-align: center" id="now_quantity3" type="number" name="now_quantity3">
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Transaction quantity(交易数量)</th>
+                <td align="center">
+                    <input style="height:50px;font-size: 1.8em;text-align: center" id="transaction_quantity3" type="number" name="transaction_quantity3">
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Transaction commission(交易佣金)</th>
+                <td style="display: flex;justify-content:center;align-items:center;">
+                    <p style="font-size: 1.8em;color:red" id="transaction_commission3" style="display: inline;">--</p>
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Transaction ​​stamp duty(交易印花税)</th>
+                <td style="display: flex;justify-content:center;align-items:center;">
+                    <p style="font-size: 1.8em;color:red" id="transaction_stamp_duty3" style="display: inline;">--</p>
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Quantity after transaction(交易后数量))</th>
+                <td style="display: flex;justify-content:center;align-items:center;">
+                    <p style="font-size: 1.8em" id="quantity_after_transaction3" style="display: inline;">--</p>
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Cost price after transaction(交易后成本价)</th>
+                <td style="display: flex;justify-content:center;align-items:center;">
+                    <p style="font-size: 1.8em" id="cost_price_after_transaction3" style="display: inline;">--</p>
+                </td>
+            </tr>
+        </table>
+
+        <button style="width: 95%;font-size: 2.6em;margin-top: 20px" onclick="transactionCalculation()">Calculation(计算)</button>
     </div>
 
 </body>
