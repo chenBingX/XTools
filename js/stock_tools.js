@@ -12,11 +12,13 @@ function calculationRiseAndFall() {
     if (previous_price != 0) {
         var p = (previous_price - current_price) / previous_price;
         if (p < 0) {
-            $('#rise_and_fall_result').css("color", "green");
+            $('#rise_and_fall_result_value').css("color", "green");
+            $('#rise_and_fall_result_icon').attr("src", "res/icon/arrow_up.png");
         } else {
-            $('#rise_and_fall_result').css("color", "red");
+            $('#rise_and_fall_result_value').css("color", "red");
+            $('#rise_and_fall_result_icon').attr("src", "res/icon/arrow_down.png");
         }
         result = (-p * 100).toFixed(2) + "%";
     }
-    $('#rise_and_fall_result').html(result);
+    $('#rise_and_fall_result_value').html(result);
 }
