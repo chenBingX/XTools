@@ -11,8 +11,7 @@
     <script type="text/javascript" src="js/stock_tools.js"></script>
 </head>
 
-<body>
-
+<body style="padding: 0;margin: 0;height: 100%;font-size: 100%;">
     <script>
         window.onpageshow = function(event) {　　
             if (event.persisted) {　　　　
@@ -21,9 +20,9 @@
         };
     </script>
 
-    <div style="display: flex;flex-direction:column;align-items:center;">
-        <p style="font-style:inherit;font-size: 1.5em"><strong>Rise and fall calculation(涨跌幅计算)</strong></p>
-        <table>
+    <div style="width: 100%; display: flex;flex-direction:column;align-items:center;">
+        <p style="font-style:inherit;font-size: 2em"><strong>Rise and fall calculation(涨跌幅计算)</strong></p>
+        <table style="width:100%">
             <tr>
                 <th>Previous price(前价)</th>
                 <th>Current price(现价)</th>
@@ -43,7 +42,7 @@
             </tr>
         </table>
 
-        <button style="width: 50%;" onclick="calculationRiseAndFall()">Calculation(计算)</button>
+        <button style="width: 80%;font-size: 1.5em" onclick="calculationRiseAndFall()">Calculation(计算)</button>
 
     </div>
 
