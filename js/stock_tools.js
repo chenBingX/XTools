@@ -142,3 +142,29 @@ function transactionCalculation() {
 
 
 }
+
+
+function priceCalculation() {
+    var price = $('#price').val();
+    if (price.replace(/(^s*)|(s*$)/g, "").length == 0) {
+        price = 0;
+    }
+    var quote = $('#quote').val();
+    if (quote.replace(/(^s*)|(s*$)/g, "").length == 0) {
+        quote = 0;
+    }
+    if (quote < -1) {
+        quote = -1;
+    }
+    if (price == 0 || quote == 0) return;
+    quote = parseFloat(quote);
+    if (quote > 0) {
+        $('#target_price').css("color", "green");
+        $('#target_price_icon').attr("src", "res/icon/arrow_up.png");
+    } else {
+        $('#target_price').css("color", "red");
+        $('#target_price_icon').attr("src", "res/icon/arrow_down.png");
+    }
+    var targetPrice = price * (1 + quote);
+    $('#target_price').html(targetPrice.toFixed(2));
+}

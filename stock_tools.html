@@ -68,6 +68,36 @@
         <button style="width: 95%;font-size: 2.6em;margin-top: 20px" onclick="calculationRiseAndFall()">Calculation(计算)</button>
     </div>
 
+
+    <div style="margin-top:50px;margin-bottom:10px;margin-left:2%;height:2px;width:96%;border-top:1px solid #ccc;float:left;"></div>
+
+    <div style="width: 100%; display: flex;flex-direction:column;align-items:center;">
+        <p style="font-style:inherit;font-size: 3em;text-align: center"><strong>Price calculation<br>(价格计算)</strong></p>
+        <table style="width:95%;">
+            <tr>
+                <th style="font-size: 1.8em">Price<br>(价格)</th>
+                <td align="center">
+                    <input style="height:50px;font-size: 1.8em;text-align: center" id="price" type="number" name="price">
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Quote change<br>(涨跌幅)</th>
+                <td align="center">
+                    <input style="height:50px;font-size: 1.8em;text-align: center" id="quote" type="number" name="quote">
+                </td>
+            </tr>
+            <tr>
+                <th style="font-size: 1.8em">Target price<br>(目标价)</th>
+                <td style="display: flex;justify-content:center;align-items:center;">
+                    <p style="font-size: 1.8em" id="target_price" style="display: inline;">--</p>
+                    <img id="target_price_icon" width="15em" src="res/icon/arrow_up.png" style="margin-left: 10px">
+                </td>
+            </tr>
+        </table>
+
+        <button style="width: 95%;font-size: 2.6em;margin-top: 20px" onclick="priceCalculation()">Calculation(计算)</button>
+    </div>
+
     <div style="margin-top:50px;margin-bottom:10px;margin-left:2%;height:2px;width:96%;border-top:1px solid #ccc;float:left;"></div>
 
     <div style="width: 100%; display: flex;flex-direction:column;align-items:center;">
